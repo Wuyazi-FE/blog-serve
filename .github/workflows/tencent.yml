@@ -62,9 +62,6 @@ jobs:
     build:
         # runs-on 指定job任务运行所需要的虚拟机环境(必填字段)
         runs-on: ubuntu-latest
-        strategy:
-        matrix:
-          node-version: [14.x] # 配置所需node版本
         steps:
             # 获取源码
             - name: 迁出代码
@@ -76,7 +73,7 @@ jobs:
               # 使用action库  actions/setup-node安装node
               uses: actions/setup-node@v1
               with:
-                  node-version: ${{ matrix.node-version }}
+                  node-version: 14.x
 
             # 安装依赖
             - name: 安装依赖
